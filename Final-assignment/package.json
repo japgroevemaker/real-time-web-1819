@@ -1,0 +1,25 @@
+{
+  "name": "final-assignment",
+  "version": "1.0.0",
+  "description": "Final assignment for real-time-web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "real",
+    "time"
+  ],
+  "author": "Joep Gravemaker",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "nodemon": "^1.18.11",
+    "socket.io": "^2.2.0",
+    "twit": "^2.2.11"
+  }
+}

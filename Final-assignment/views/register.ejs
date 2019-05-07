@@ -1,0 +1,13 @@
+<% include header %>
+<section id="overlay">
+    <h2>Register</h2>
+    <form action="/register" method="post">
+      <input class="input-field" type="text" name="name" value="" placeholder="Name">
+      <input class="input-field" type="text" name="nickname" value="" placeholder="NickName">
+      <input class="input-field" type="email" name="email" placeholder="E-mail">
+      <input class="input-field" type="password" name="password" placeholder="Password">
+      <input class="submit-button" type="submit" value="Submit" >
+    </form>
+    <p>Do you already have an account? Head back to the <a href="/login">log in</a> page</p>
+</section>
+<% include footer %>

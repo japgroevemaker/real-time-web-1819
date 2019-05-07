@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Joep",
+    "nickname": "Joop",
+    "email": "joepgravemaker@gmail.com",
+    "password": "Joep"
+  },
+  {
+    "id": 2,
+    "name": "Henk",
+    "nickname": "Henkie123",
+    "email": "henk@gmail.com",
+    "password": "henk"
+  },
+  {
+    "id": 3,
+    "name": "Jos",
+    "nickname": "jos123",
+    "email": "jos@gmail.com",
+    "password": "jos"
+  },
+  {
+    "id": 4,
+    "name": "Hannah",
+    "nickname": "Han123",
+    "email": "hannah@gmail.com",
+    "password": "hannah"
+  },
+  {
+    "id": 5,
+    "name": "Rick",
+    "nickname": "Riek123",
+    "email": "rick@gmail.com",
+    "password": "rick"
+  },
+  {
+    "id": 6,
+    "name": "Fred",
+    "nickname": "Fredrikus",
+    "email": "fred@gmail.com",
+    "password": "fred"
+  }
+]

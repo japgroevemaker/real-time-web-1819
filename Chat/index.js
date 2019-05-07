@@ -67,7 +67,7 @@ const sports = io.of('/sports')
 
     socket.on('disconnect', function(){
       console.log("user disconnect");
-      sports.emit('userLeft', socket.username);
+      socket.broadcast.emit('userLeft', socket.username);
     })
   })
 

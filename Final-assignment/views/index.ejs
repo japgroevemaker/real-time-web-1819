@@ -1,0 +1,42 @@
+<% include header %>
+
+<header>
+  <h2><strong>Logged in as: </strong><%=user.name%></h2>
+  <nav>
+    <ul>
+      <li> <a href="/">Home</a> </li>
+      <li><form  action="/logout" method="post">
+        <input id="logout" type="submit" name="" value="Log out">
+      </form></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="container">
+  <a href="/sports">
+    <section class="room-picker">
+      <h2>Sports</h2>
+      <img src="" alt="">
+      <button type="button" name="button">Join!</button>
+    </section>
+  </a>
+
+  <a href="/news">
+    <section class="room-picker">
+      <h2>News</h2>
+      <img src="" alt="">
+      <button type="button" name="button">Join!</button>
+    </section>
+  </a>
+
+  <a href="/beauty">
+    <section class="room-picker">
+      <h2>Beauty</h2>
+      <img src="" alt="">
+      <button type="button" name="button">Join!</button>
+    </section>
+  </a>
+</section>
+
+<script defer src="/js/home.js"></script>
+<% include footer %>

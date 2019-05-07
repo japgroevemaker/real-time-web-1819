@@ -1,60 +1,52 @@
-# Real-Time Web @cmda-minor-web · 2018-2019
+# Real-Time-Web
 
-During this course you will learn how to build a **meaningful** real-time application. You will learn techniques to setup an open connection between the client and the server. This will enable you to send data in real-time both ways, at the same time.
+<details>
+  <summary> Chat app</summary>
+  In week 1 was het de bedoeling een chat app te bouwen. Dit is goed gelukt en ik heb hierbij een basis gelegd voor mijn Eindopdracht.
+</details>
 
-## Goals
-- _Deal with real-time complexity_
-- _Handle real-time client-server interaction_
-- _Handle real-time data management_
-- _Handle multi-user support_
+## Eindopdracht
+[live demo](https://final-assignment-rdltooqnwb.now.sh/login)
 
-[Rubric][rubric]
+### Concept
+Het idee is om een soort discussie app te bouwen. Het idee is als volgt: de gebruiker registreert en kiest een gebruikersnaam. Vervolgens 'joined' de gebruiker een van de vele 'rooms' met elk een eigen categorie, bijvoorbeeld sport. Al deze chatrooms halen ook tweets op uit de twitter api. Iedereen kan deze tweets zien en tegelijkertijd ook met elkaar discusieren. Daarnaast kan je ook je eigen zoekterm maken en er voor zorgen dat de api tweets 'trackt' aan de hand van jouw zoekterm. Dus, discusieren maar!
 
-## Curriculum
+### API
+Ik gebruik de twitter api. Ik gebruik de twitter API client [twit](https://www.npmjs.com/package/twit).
 
-### Week 1 - Hello Server
+### Socket.io
+De app heb ik gebouwd met [socket.io](https://socket.io/). Socket zorgt ervoor dat er een real-time verbinding wordt gemaakt tussen de Server-side javascript en de Client-side javascript. Hieronder zal ik beknopt uitleggen hoe makkelijk het is om socket te gebruiken.
 
-Goal: Build and deploy a unique barebone real-time app  
+```js
+const io = socket();
 
-[Exercises](https://github.com/cmda-minor-web/real-time-web-1819/blob/master/week-1.md)    
-[Slides](https://docs.google.com/presentation/d/1EVsEFgBnG699nce058ss_PkVJROQXDp5wJJ-IRXvzTA/edit?usp=sharing)  
+io.on('connection', function(socket){
 
-
-### Week 2 - Sharing is caring  
-
-Goal: Store, manipulate and share data between server-client   
-
-[Exercises](https://github.com/cmda-minor-web/real-time-web-1819/blob/master/week-2.md)    
-[Slides](https://docs.google.com/presentation/d/1woKoY59D8Zcttna0FzfNjEtGtT8oXWi9b5LYlukRISM/edit?usp=sharing)
+})
+```
+en de real-time verbinding is gemaakt! Vervolgens kan je binnen deze functie helemaal los gaan als het op real-time aankomt. Hieronder laat ik zien hoe je tweets uit de twitter api server-side binnenhaalt en real-time serveert via clientside javascript.
 
 
-### Week 3 - Let’s take this show on the road 
+```js
+let stream = T.stream('statuses/filter', {track: 'trump'})
+```
+Je maakt een nieuwe stream aan op je server, deze stream pakt alle tweets met het woord `trump` er in.
 
-Goal: Handle data sharing and multi-user support 
+```js
+stream.on('tweet', function(tweet){
+  socket.emit('tweet', tweet)
+});
+```
+Hierboven "pass" je de tweets als het waren door naar de clientside javascript. Hij zegt hier dat alle binnengekomen tweets uitgezonden (emit) moeten worden.
+```js
+socket.on('tweet', function(stream){
 
-[Exercises](https://github.com/cmda-minor-web/real-time-web-1819/blob/master/week-3.md)  
-[Slides](https://docs.google.com/presentation/d/1SHofRYg87bhdqhv7DQb_HZMbW7Iq1PtqxpdtZHMbMmk/edit?usp=sharing)
+})
+```
+Vervolgens laat je de clientside javascript als het ware luisteren naar of er nieuwe tweets binnenkomen. Best simpel toch!
 
-> If you're seeing this message on a forked repo, it means one of our students hasn't changed the description yet 😈
-
-<!-- Add a link to your live demo in Github Pages 🌐-->
-
-<!-- ☝️ replace this description with a description of your own work -->
-
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
-
-<!-- Maybe a table of contents here? 📚 -->
-
-<!-- How about a section that describes how to install this project? 🤓 -->
-
-<!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
-
-<!-- This would be a good place for your data life cycle ♻️-->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
-
-[rubric]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSd1I4ma8R5mtVMyrbp6PA2qEInWiOialK9Fr2orD3afUBqOyvTg_JaQZ6-P4YGURI-eA7PoHT8TRge/pubhtml
+### Wat wil ik nog toevoegen?
+- [ ] Database toevoegen(google firebase)
+- [x] Express-sessions
+- [ ] Styling verbeteren
+- [ ] Gebruikers die hun eigen 'room' kunnen aanmaken

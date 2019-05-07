@@ -1,0 +1,58 @@
+<% include header %>
+
+<header>
+  <h2><strong>Logged in as: </strong><%=user.name%></h2>
+  <nav>
+    <ul>
+      <li> <a href="/">Home</a> </li>
+      <li><form  action="/logout" method="post">
+        <input id="logout" type="submit" name="" value="Log out">
+      </form></li>
+    </ul>
+  </nav>
+</header>
+<h1 id="user-name" style="display:none">
+  <%=user.nickname%>
+</h1>
+
+<section id="container">
+  <div id="chat">
+    <h1>News room</h1>
+    <div id="chat-window">
+      <div id="output"></div>
+      <div id="feedback"></div>
+    </div>
+    <div id="joined-users"></div>
+    <form id="send-message">
+      <textarea type="text" id="message" placeholder="Remember, be nice!"></textarea>
+      <input type="submit" id="send" name="" value="Stuur">
+    </form>
+  </div>
+
+  <div id="twitter">
+    <h2>Create your own searchtag</h2>
+    <form id="change-genre">
+      <input id="set-genre" type="text" name="tweetSelect" value="" autocomplete="off">
+      <input id="genre-submit" type="submit" name="" value="Submit">
+    </form>
+
+    <div id="checkbox-container">
+      <input id="Breaking" type="checkbox" name="" value="Breaking">
+      <label for="Breaking">Breaking</label>
+
+      <input id="Binnenland" type="checkbox" name="" value="Binnenland">
+      <label for="Binnenland">Binnenland</label>
+    </div>
+    <div id="twitter-output">
+  </div>
+
+  </div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/connect-news.js"></script>
+<script src="/js/create-checkbox.js"></script>
+<script src="/js/tweets.js"></script>
+<script src="/js/chat.js"></script>
+
+<% include footer %>
