@@ -451,7 +451,6 @@ header h2 {
 
 #twitter #twitter-output {
   width: 90%;
-  height: auto;
   overflow: auto;
   margin: auto;
   display: flex;
@@ -462,7 +461,7 @@ header h2 {
 #twitter-output .line {
   font-family: var(--VT323);
   background-color: var(--yellow);
-  width: 30%;
+  width: 100%;
   padding: 0.5em;
   border-radius: 1em;
   box-shadow: 1px 1px 15px 1px rgba(102,101,102,1);
