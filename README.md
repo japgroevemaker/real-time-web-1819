@@ -14,7 +14,7 @@ Het idee is om een soort discussie app te bouwen. Het idee is als volgt: de gebr
 ### Data life cycle
 Helaas moeten jullie het qua kwaliteit met deze tekening doen, mijn adobe licentie is verlopen en ik blijf immers maar gewoon een arme zangeres.
 
-<img src="https://github.com/japgroevemaker/real-time-web-1819/blob/master/Final-assignment/img/data_life_cycle.jpg" width="40%"/>
+<img src="https://github.com/japgroevemaker/real-time-web-1819/blob/master/Final-assignment/img/data_life_cycle.jpg" width="100%"/>
 
 ### Twitter API
 Ik gebruik de twitter api. Ik gebruik de twitter API client [twit](https://www.npmjs.com/package/twit).
